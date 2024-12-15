@@ -69,7 +69,10 @@
             overlays = [ self.overlays.${system}.default ];
           };
         in
-        genAttrs (map (v: "playwright-browsers_${v}") versions) (version: pkgs.${version});
+        genAttrs (map (v: "playwright-browsers_${v}") versions) (version: pkgs.${version}) 
+        // {
+          default = self.packages.${system}.playwright-browsers_v1_45_0;
+        };
     })
     // {
       recipes = genAttrs versions (
