@@ -18,6 +18,8 @@
           inherit system;
         };
       in
-        pkgs.callPackage ./v1_45_0/driver.nix { }
+      {
+        browsers = pkgs.callPackage ./v1_45_0/driver.nix { };
+      }
     );
 }
