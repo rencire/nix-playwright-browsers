@@ -18,10 +18,6 @@
           inherit system;
         };
       in
-      {
-        packages = {
-          playwright-browsers_v1_47_0 = pkgs.callPackage ./v1_47_0/driver.nix { };
-          default = self.packages.${system}.playwright-browsers_v1_47_0.playwright-core.browsers;
-        };
-      });
+        pkgs.callPackage ./v1_45_0/driver.nix { }
+    );
 }
